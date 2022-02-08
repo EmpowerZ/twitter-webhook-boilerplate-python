@@ -16,7 +16,7 @@ def default_route():
 
 #The GET method for webhook should be used for the CRC check
 #TODO: add header validation (compare_digest https://docs.python.org/3.6/library/hmac.html)
-@app.route("/webhook/twitter", methods=["GET"])
+@app.route("/webhooks/twitter", methods=["GET"])
 def twitterCrcValidation():
     
     crc = request.args['crc_token']
@@ -36,7 +36,7 @@ def twitterCrcValidation():
         
 #The POST method for webhook should be used for all other API events
 #TODO: add event-specific behaviours beyond Direct Message and Like
-@app.route("/webhook/twitter", methods=["POST"])
+@app.route("/webhooks/twitter", methods=["POST"])
 def twitterEventReceived():
 	  		
     requestJson = request.get_json()
