@@ -31,8 +31,9 @@ def twitterCrcValidation():
         'response_token': 'sha256=' + format(str(digested)[2:-1])
     }
     print('responding to CRC call')
-
-    return json.dumps(response)   
+    tt = 'sha256=' + format(str(digested)[2:-1])
+    #return json.dumps(response)
+    return '{"response_token":"' + tt + '"}'
         
 #The POST method for webhook should be used for all other API events
 #TODO: add event-specific behaviours beyond Direct Message and Like
